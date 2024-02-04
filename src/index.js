@@ -1,6 +1,8 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import SlimSelect from 'slim-select';
+import 'slim-select/styles';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 const breedSelect = document.querySelector('.breed-select');
@@ -43,6 +45,10 @@ function populateBreedsSelect(breeds) {
     option.value = breed.id;
     option.text = breed.name;
     breedSelect.appendChild(option);
+  });
+
+  new SlimSelect({
+    select: breedSelect,
   });
 }
 
