@@ -1,4 +1,6 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 const breedSelect = document.querySelector('.breed-select');
@@ -14,8 +16,12 @@ function hideLoader() {
   loader.style.display = 'none';
 }
 
-function showError() {
-  errorElement.style.display = 'block';
+function showError(message) {
+  iziToast.error({
+    title: 'Error',
+    message: message || 'Oops! Something went wrong!',
+    position: 'topRight',
+  });
 }
 
 function hideError() {
